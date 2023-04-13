@@ -1,0 +1,9 @@
+### Idea
+.idea/
+*.iml
+
+!config/
+!.gitignore
+!*.jmx
+!Jenkinsfile
+!reports/
