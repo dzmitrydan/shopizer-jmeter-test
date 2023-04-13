@@ -1,5 +1,6 @@
 pipeline {
-    node {
+    agent any
+    stages {
         stage("clone git repo") {
             git 'https://github.com/dzmitrydan/shopizer-jmeter-test.git'
         }
