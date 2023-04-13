@@ -1,9 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage("clone git repo") {
-            git 'https://github.com/dzmitrydan/shopizer-jmeter-test.git'
-        }
         stage("run test") {
             sh "jmeter -n -t /shopizer_test_plan.jmx -l /reports/shopizer_test_result.csv -e -o /reports/HTMLReport/"
         }
