@@ -2,7 +2,9 @@ pipeline {
     agent any
     stages {
         stage("run test") {
-            sh "jmeter -n -t /shopizer_test_plan.jmx -l /reports/shopizer_test_result.csv -e -o /reports/HTMLReport/"
+            sh "mkdir /reports"
+            sh "cd /Users/Dmitry_Danilov/Desktop/Perfomance/JMeter/apache-jmeter-5.5/bin/"
+            sh "jmeter -Jjmeter.save.saveservice.output_format=xml -n -t shopizer_test_plan.jmx -l reports/shopizer_test_result.jtl -e -o /reports/HTMLReport"
         }
         stage('publish results') {
             sh "mv /tmp/reports/* $WORKSPACE/$BUILD_NUMBER/"
